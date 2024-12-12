@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food App with a Spinning wheel</title>
+    <link rel="shortcut icon" href="./images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="circle">
+        <div class="food-imgs">
+            <span class="food-img" id="1">
+                <img src="./images/items/dosa.png" alt="dosa">
+            </span>
+            <span class="food-img" id="2">
+                <img src="./images/items/jalebi.png" alt="Jalebi">
+            </span>
+            <span class="food-img" id="3">
+                <img src="./images/items/juice.png" alt="Juice">
+            </span>
+            <span class="food-img" id="4">
+                <img src="./images/items/meals.png" alt="Meals">
+            </span>
+            <span class="food-img" id="5">
+                <img src="./images/items/puri.png" alt="Puri">
+            </span>
+            <span class="food-img" id="6">
+                <img src="./images/items/idli.png" alt="Idli">
+            </span>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img class="logo-img" src="./images/image.png" alt="">
+            <div class="logo-name">Food App</div>
+        </div>
+        <ul class="food-timings">
+            <li>Breakfast</li>
+            <li>Lunch</li>
+            <li>Dinner</li>
+        </ul>
+        <div class="shopping-bag">
+            <img src="./images/shopping-bag.svg" alt="">
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="hero-food-price">
+            ₹250
+        </div>
+        <h1 class="hero-heading">
+            Panner Butter Masala
+        </h1>
+        <div class="hero-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus esse, mollitia porro minus fugiat a quia?
+            Soluta ullam totam ducimus?
+        </div>
+        <button type="button" class="hero-button">
+            order now
+        </button>
+    </section>
+    <section class="food-images-section">
+        <div class="hero-food-img">
+            <img src="./images/panner-butter-masala.png" alt="">
+        </div>
+    </section>
+
+
+    <script>
+        const radius = 300;
+        const diameter = radius * 2;
+
+        const circleWrapper = document.querySelector('.food-imgs');
+        circleWrapper.style.width = diameter + "px";
+        circleWrapper.style.height = diameter + "px";
+
+        const imgs = document.querySelectorAll('.food-img');
+        const delAngle = 360 / imgs.length;
+
+        imgs.forEach((img, i) => {
+            const x = radius * Math.cos((delAngle * i) * (Math.PI / 180))
+            const y = radius * Math.sin((delAngle * i) * (Math.PI / 180))
+            img.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+
+</html>
